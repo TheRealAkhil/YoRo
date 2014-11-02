@@ -10,10 +10,8 @@
 
 </head>
 
-<body>
-	<h1 style="size:"> Welcome to YoRo </h1>
-	<h3> You only Remember once </h3>
-	<h4> A cross-platform reminder app that uses the Yo and Yelp APIs </h4>
+<body style="background-color:#A33FB8">
+	<img src="{% static 'Logo.png'%}" style="display:block;margin-left:auto;margin-right:auto;margin-top:50px" alt="Dis our logo">
 
 	<div class="container">
 
@@ -23,10 +21,10 @@
 		            {% csrf_token %}
 		            <hr class="colorgraph">
 		            <div class="form-group">
-		                <input type="text" name="username" id="username" class="form-control input-lg" placeholder="USERNAME" tabindex="4">
+		                <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Yo Username" tabindex="4">
 		            </div>
 		            <div class="form-group">
-		                <input type="text" name="note" id="note" class="form-control input-lg" placeholder="Insert note here" tabindex="4">
+		                <input type="text" name="note" id="note" class="form-control input-lg" placeholder="Insert Reminder" tabindex="4">
 		            </div>
 		            <hr class="colorgraph">
 		            <div class="row">
