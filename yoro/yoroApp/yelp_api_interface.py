@@ -23,10 +23,11 @@ SEARCH_PATH = '/v2/search/'
 BUSINESS_PATH = '/v2/business/'
 
 # OAuth credential placeholders that must be filled in by users. (filled by Tejas)
-CONSUMER_KEY = None
-CONSUMER_SECRET = None
-TOKEN = None
-TOKEN_SECRET = None
+CONSUMER_KEY = "tTfVBK20NSvKa7iMosO9dQ"
+CONSUMER_SECRET = "xvOyWGlnGmIgD1y-Axu33Vj3DuY"
+TOKEN = "tuldi5IUKvJ2Ipgb5MCGJqIZw9TKyyk4"
+TOKEN_SECRET = "8JPI-d2qM-lt2sNz-i2VAYYEOt0"
+
 
 
 def request(host, path, url_params=None):
