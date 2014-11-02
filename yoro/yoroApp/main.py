@@ -15,7 +15,7 @@ def database_query():
 	# see if datetime.now() > datetime obj
 	# if Yes, then run send_first_yo(username)
 	# and then run the main method
-	print "in"
+	# print "in"
 	for n in Note.objects.all():
 		d = n.time
 		if datetime.now(tz = eastern_time.Eastern) > d:
