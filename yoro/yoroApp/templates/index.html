@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 
-<html>
-	<head>
-		<title>Welcome to YoRo</title>
-		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+<head>
+{% load staticfiles %}
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
 
-	</head>
-	<body style="font-family: 'Roboto', sans-serif;">
-		<h1 style="size:"> YoRo </h1>
-		<h3> You only Remember once </h3>
-		<h4> A cross-platform reminder app that uses the Yo and Yelp APIs </h4>
+<title>YoRo</title>
 
-		<form class="pure-form">
-			<input class="pure-input-1-3 pure-input-rounded" type="text" placeholder="[Yo Username]"><br><br>
-			<input class="pure-input-1-3 pure-input-rounded" type="text" placeholder="[Reminder]"><br><br>
-			<button class="pure-button pure-input-rounded">
-		    <i class="fa fa-check"></i>
-		    Set a YoRo!
-			</button>
-		</form>
+</head>
 
-	</body>
-	
-</html>
+<body>
+	<h1 style="size:"> Welcome to YoRo </h1>
+	<h3> You only Remember once </h3>
+	<h4> A cross-platform reminder app that uses the Yo and Yelp APIs </h4>
+
+	<div class="container">
+
+		<div class="row">
+		    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		        <form role="form" action="{% url 'createnote' %}" method="post">
+		            {% csrf_token %}
+		            <hr class="colorgraph">
+		            <div class="form-group">
+		                <input type="text" name="username" id="username" class="form-control input-lg" placeholder="USERNAME" tabindex="4">
+		            </div>
+		            <div class="form-group">
+		                <input type="text" name="note" id="note" class="form-control input-lg" placeholder="Insert note here" tabindex="4">
+		            </div>
+		            <hr class="colorgraph">
+		            <div class="row">
+		                <div class="col-xs-6 col-md-6"><input type="submit" value="Save Note" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+		            </div>
+		        </form>
+		    </div>
+
+	</div>
+
+</body>
