@@ -38,12 +38,13 @@ def make_date_object(date, time):
 
 app = Flask(__name__)
 
-def get_location():
+@app.route("/yo/")
+def main_yo():
 	username = request.args.get('username')
 	location = request.args.get('location')
 	latitude = location.split(';')[0]
 	longitude = location.split(';')[1]
-	return (latitude, longitude)
+
 
 
 
