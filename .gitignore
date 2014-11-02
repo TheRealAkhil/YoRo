@@ -3,3 +3,4 @@
 .DS_Store
 yoro.py
 *.pyc
+**/*.sqlite3
