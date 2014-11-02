@@ -46,7 +46,7 @@ def get_date(text):
 	month_date_format = "\d+/\d+"
 	month_date_year_format =  "[0-9]+/[0-9][0-9]?/[0-9]+"
 	month_date_no_abbrev = "(January|February|March|April|May|June|July|August|September|October|November|December) \d+"
-	month_date_year_no_abbrev = "(January|February|March|April|May|June|July|August|September|October|November|December) \d\d? \d+"
+	month_date_year_no_abbrev = "(January|February|March|April|May|June|July|August|September|October|November|December) \d\d? \d+ "
 	tomorrow = "tomorrow"
 	regex_list = [ month_date_year_format, month_date_format, month_date_year_no_abbrev, month_date_no_abbrev, tomorrow ]
 	for regex in regex_list:
@@ -63,7 +63,10 @@ def get_date(text):
 	elif "/" in date_calced:
 		parts_backslash = date_calced.split("/") 
 		if len(parts_backslash) == 3:
-			return [int(parts_backslash[0]), int(parts_backslash[1]), int(parts_backslash[2])]
+			if int(parts_backslash[2]) < 100:
+				return [int(parts_backslash[0]), int(parts_backslash[1]), int(parts_backslash[2]) + 2000]
+			else:
+				return [int(parts_backslash[0]), int(parts_backslash[1]), int(parts_backslash[2])]
 		else:
 			return [int(parts_backslash[0]), int(parts_backslash[1]), int(remove_time[1])]
 	elif "tomorrow" in date_calced.lower():
@@ -84,7 +87,7 @@ def get_date(text):
 def is_adjective(word):
 	#adjective endings
 	#http://www.grammar-quizzes.com/adj-forms.html
-	adjective_endings = ["ary","ful","ic","ical","ish","less","ian","ly","ous","y"]
+	adjective_endings = ["ary","ful","ic","ical","ish","less","ian","ly","ous","can"]
 	for end in adjective_endings:
 		if len(word) < len(end):
 			continue
@@ -111,14 +114,25 @@ def get_time(text):
 		if "PM" in time_calced and integer_time != 12:
 			return [integer_time + 12,0]
 		else:
-			return [integer_time,0]
+			if integer_time == 12:
+				if "PM" in time_calced:
+					return [12,0]
+				else:
+					return [0,0]
+			else:
+				return [integer_time,0]
 	else:
 		integer_time = int(time_calced.replace("A","").replace("P","").replace("M","").split(":")[0])
 		minutes = time_calced.replace("A","").replace("P","").replace("M","").split(":")[1].strip()
 		if "PM" in time_calced and integer_time != 12:
-			return [integer_time + 12,int(minutes)]
+			return [integer_time + 12, int(minutes)]
+		elif "PM" in time_calced and integer_time == 12:
+			return [integer_time, int(minutes)]
 		else:
-			return [integer_time,int(minutes)]
+			if integer_time == 12:
+				return [0,int(minutes)]
+			else:
+				return [integer_time, int(minutes)]
 
 def close_enough(string1, string2): #are two works close enough that we can consider them equal
 	from nltk.metrics.distance import edit_distance #from nltk

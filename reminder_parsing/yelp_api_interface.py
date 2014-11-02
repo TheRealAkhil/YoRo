@@ -18,8 +18,6 @@ import geopy
 import oauth2
 
 API_HOST = 'api.yelp.com'
-DEFAULT_TERM = 'dinner'
-DEFAULT_LOCATION = 'San Francisco, CA'
 SEARCH_LIMIT = 3
 SEARCH_PATH = '/v2/search/'
 BUSINESS_PATH = '/v2/business/'
@@ -83,7 +81,9 @@ def search(term, location, lat, longi):
         'limit': SEARCH_LIMIT,
         'latitude': lat, ##added
         'longitude': longi, ##added
-        'radius_filter': 4000 ##added
+        'radius_filter': 5000, ##added
+        'sort':0
+        #'category_filter': category
     }
     return request(API_HOST, SEARCH_PATH, url_params=url_params)
 
@@ -123,8 +123,11 @@ def get_yelp_recommendation(category, latitude, longitude ):
     geolocator = Nominatim() ##from geopy source documentation
     geocode_loc = geolocator.reverse(str(latitude) + ", " + str(longitude))
     city = geocode_loc.address.split(",")[-5].encode("ascii", "ignore").strip() ##obtain the city    
-    response = search("grocery", city, latitude, longitude) 
+    response = search(category, city, latitude, longitude) 
     businesses = response["businesses"]
-    top_business = businesses[0]
-    return top_business["mobile_url"]
+    if len(businesses) < 1:
+        return ""
+    else:
+        top_business = businesses[0]
+        return top_business["mobile_url"]
 

@@ -30,21 +30,22 @@ keyword_categorization = [
 ("video","electronics"),
 
 #Restaurants
-("sandwiches","sandwiches"),
-("pizza","pizza"),
-("cuisine","restaurant"),
-("pasta","pasta"),
-("mexican","mexican"),
+("sandwiches","restaurants"),
+("pizza","restaurants"),
+("cuisine","restaurants"),
+("restaurants","restaurants"),
+("pasta","restaurants"),
+("mexican","restaurants"),
 
 #Clothing
-("jeans","clothing/apparel"),
-("suit","clothing/apparel"),
-("jersey","clothing/apparel"),
-("suit","clothing/apparel"),
-("shoes","clothing/apparel"),
-("shorts","clothing/apparel"),
-("dress","clothing/apparel"),
-("boxers","clothing/apparel"),
+("jeans","Clothing Apparel"),
+("suit","Clothing Apparel"),
+("jersey","Clothing Apparel"),
+("suit","Clothing Apparel"),
+("shoes","Clothing Apparel"),
+("shorts","Clothing Apparel"),
+("dress","Clothing Apparel"),
+("boxers","Clothing Apparel"),
 
 #Sports Equipment
 ("tennis","sporting goods"),
@@ -52,7 +53,7 @@ keyword_categorization = [
 ("football","sporting goods"),
 ("basketball","sporting goods"),
 ("cleats","sporting goods"),
-("food","clothing/apparel"),
+("baseball","Clothing Apparel"),
 
 # Miscellaneous
 ("deposit","bank"),
