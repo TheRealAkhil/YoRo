@@ -6,6 +6,13 @@ import requests
 import schedule
 import time
 import get_yo_main
+import eastern_time
+
+
+
+def send_first_yo(username):
+	requests.post(api_address, data={'api_token': api_token, 'username': username});
+	return
 
 def database_query():
 	# for each request in the database
@@ -16,7 +23,7 @@ def database_query():
 	print "in"
 	for n in Note.objects.all():
 		d = n.time
-		if datetime.now() > d:
+		if datetime.now(tz = eastern_time.Eastern) > d:
 			send_first_yo(n.user)
 
 
@@ -26,14 +33,13 @@ while True:
 	schedule.run_pending()
 	time.sleep(1)
 
+# while True:
+# 	database_query()
+
 def send_yo_with_link(username, link):
 	requests.post(api_address, data={'api_token': api_token, 'username': username, 'link': link});
 	return
 
-
-def send_first_yo(username):
-	requests.post(api_address, data={'api_token': api_token, 'username': username});
-	return
 
 app = Flask(__name__)
 
