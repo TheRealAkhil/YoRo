@@ -5,3 +5,4 @@ class Note(models.Model):
     text_body = models.CharField(max_length=200)
     time = models.DateTimeField('Reminder Date')
     flag = models.BooleanField(default=False)
+    flagRead = models.BooleanField(default=False)

@@ -25,7 +25,7 @@ def get_yo_main(latitude, longitude, reminder_text):
 	else:
 		return "Not Processable"
 
-reminder_text = "i need fishing-rod 11:30 PM"
+reminder_text = "I need eggs at 6:30PM"
 print get_datetime(reminder_text)
 print get_yo_main(41.309882, -72.933874, reminder_text)
 
