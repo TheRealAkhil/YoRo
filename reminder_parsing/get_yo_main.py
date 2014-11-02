@@ -5,12 +5,14 @@ import category_keywords as ck
 """
 Returns a datetime for when the Yo should be sent along with the corresponding yelp link (String)
 
-URL for Yelp matching location within 4000 meters of the area
+URL for Yelp matching location within 8000 meters of the area
 """
 
+import datetime
+
 def get_datetime(reminder_text):
-	date = get_category.get_date(text)
-	time = get_category.get_time(text)
+	date = gc.get_date(reminder_text)
+	time = gc.get_time(reminder_text)
 	return datetime.datetime(date[2],date[0],date[1],time[0],time[1])
 
 def get_yo_main(latitude, longitude, reminder_text):
@@ -22,7 +24,9 @@ def get_yo_main(latitude, longitude, reminder_text):
 	else:
 		return "Not Processable"
 
-get_yo_main(41.309882, -72.933874, "i need mexican restaurant for 11/30 1:30 am")
+# reminder_text = "i need mexican restaurant for 11/30 1:30 am"
+# print get_datetime(reminder_text)
+# print get_yo_main(41.309882, -72.933874, reminder_text)
 
 
 
