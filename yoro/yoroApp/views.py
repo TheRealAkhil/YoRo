@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from models import Note
 import get_yo_main as helpers
+import main
 
 def index(request):
     return render(request, 'index.html', {})

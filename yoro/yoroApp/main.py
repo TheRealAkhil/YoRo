@@ -6,41 +6,44 @@ import requests
 import schedule
 import time
 import get_yo_main
+import eastern_time
 
-def database_query():
-	# for each request in the database
-	# use make_date_object to make a datetime obj
-	# see if datetime.now() > datetime obj
-	# if Yes, then run send_first_yo(username)
-	# and then run the main method
-	for n in Note.objects.all():
-		d = n.time
-		if datetime.now() > d:
-			send_first_yo(n.user)
-
-
-schedule.every(5).minutes.do(database_query)
-
-while True:
-	schedule.run_pending()
-	time.sleep(1)
-
-def send_yo_with_link(username, link):
-	requests.post(api_address, data={'api_token': api_token, 'username': username, 'link': link});
-	return
 
 
 def send_first_yo(username):
 	requests.post(api_address, data={'api_token': api_token, 'username': username});
 	return
 
+def database_query():
+	# for each request in the database
+	# get the datetime obj
+	# see if datetime.now() > datetime obj
+	# if Yes, then run send_first_yo(username)
+	# and then run the main method
+	print "in"
+	for n in Note.objects.all():
+		d = n.time
+		if datetime.now(tz = eastern_time.Eastern) > d:
+			send_first_yo(n.user)
 
-def make_date_object(date, time):
-	return datetime.combine(date, time)
+
+schedule.every(1).minutes.do(database_query)
+
+while True:
+	schedule.run_pending()
+	time.sleep(1)
+
+# while True:
+# 	database_query()
+
+def send_yo_with_link(username, link):
+	requests.post(api_address, data={'api_token': api_token, 'username': username, 'link': link});
+	return
+
 
 app = Flask(__name__)
 
-@app.route("/yo/")
+@app.route("/yo")
 def main_yo():
 	username = request.args.get('username')
 	location = request.args.get('location')
@@ -65,4 +68,4 @@ def main_yo():
 
 
 if __name__ == "__main__":
-  app.run(host="0.0.0.0", port=5000)
+  app.run(host="0.0.0.0", port=8000)
