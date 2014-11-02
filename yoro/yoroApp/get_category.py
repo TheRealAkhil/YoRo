@@ -24,6 +24,7 @@ from nltk.stem.porter import PorterStemmer #from nltk
 from category_keywords import keyword_categorization
 import datetime
 import re
+import eastern_time
 
 ##taken from the nltk corpora
 nltk_stopwords = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', 'your', 'yours',
@@ -177,7 +178,7 @@ def get_reminder_data(text):
 	category = dict_info["category"]
 	special = dict_info["special"]
 	return  {
-		"datetime" : datetime.datetime(date[2],date[0],date[1],time[0],time[1]),
+		"datetime" : datetime.datetime(date[2],date[0],date[1],time[0],time[1], tzinfo = eastern_time.Eastern),
 		"category" : category,
 		"special" : special
 	}

@@ -1,6 +1,7 @@
 import yelp_api_interface as yelp
 import get_category as gc
 import category_keywords as ck
+import eastern_time
 
 """
 Returns a datetime for when the Yo should be sent along with the corresponding yelp link (String)
@@ -13,7 +14,7 @@ import datetime
 def get_datetime(reminder_text):
 	date = gc.get_date(reminder_text)
 	time = gc.get_time(reminder_text)
-	return datetime.datetime(date[2],date[0],date[1],time[0],time[1])
+	return datetime.datetime(date[2],date[0],date[1],time[0],time[1],tzinfo = eastern_time.Eastern)
 
 def get_yo_main(latitude, longitude, reminder_text):
 	reminder_parsed = gc.get_reminder_data(reminder_text)
