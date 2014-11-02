@@ -9,29 +9,24 @@ import get_yo_main
 import eastern_time
 
 
-
-def send_first_yo(username):
-	requests.post(api_address, data={'api_token': api_token, 'username': username});
-	return
-
 def database_query():
 	# for each request in the database
 	# get the datetime obj
 	# see if datetime.now() > datetime obj
 	# if Yes, then run send_first_yo(username)
 	# and then run the main method
-	print "in"
+	# print "in"
 	for n in Note.objects.all():
 		d = n.time
 		if datetime.now(tz = eastern_time.Eastern) > d:
-			send_first_yo(n.user)
+			requests.post(api_address, data={'api_token': api_token, 'username': n.user});
 
 
-schedule.every(1).minutes.do(database_query)
+# schedule.every(1).minutes.do(database_query)
 
-while True:
-	schedule.run_pending()
-	time.sleep(1)
+# while True:
+# 	schedule.run_pending()
+# 	time.sleep(1)
 
 # while True:
 # 	database_query()
