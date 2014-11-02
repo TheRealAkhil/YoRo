@@ -3,7 +3,6 @@ from API_KEY import api_token, api_address
 from flask import request, Flask
 import requests
 
-
 def setup(host, path):
 	url = 'http://{0}{1}'.format(host, path)
 
@@ -25,6 +24,7 @@ def send_yo(username):
 def make_date_object(date, time):
 	return datetime.combine(date, time)
 
+app = Flask(__name__)
 
 def get_location():
 	username = request.args.get('username')
@@ -33,7 +33,7 @@ def get_location():
 	longitude = location.split(';')[1]
 	return (latitude, longitude)
 
-app = Flask(__name__)
+
 
 if __name__ == "__main__":
   app.run(host="0.0.0.0", port=5000)
