@@ -4,6 +4,7 @@ from flask import request, Flask
 import requests
 import schedule
 import time
+from reminder_parsing.get_yo_main import get_yo_main
 
 def database_query():
 	# for each request in the database
@@ -45,5 +46,24 @@ def main_yo():
 	latitude = location.split(';')[0]
 	longitude = location.split(';')[1]
 
+	# go through database
+	# and search for the text
+	# of the input corresponding
+	# with username, assign to var
+	# reminder_text
+
+	yo_url = get_yo_main(latitude, longitude, reminder_text)[0]
+	send_yo_with_link(username, yo_url)	
+
+
+
 if __name__ == "__main__":
   app.run(host="0.0.0.0", port=5000)
+
+
+
+
+
+
+
+
