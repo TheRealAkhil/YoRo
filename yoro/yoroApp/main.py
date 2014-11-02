@@ -14,4 +14,3 @@ def database_query():
 		d = n.time
 		if datetime.now(tz = eastern_time.Eastern) > d:
 			requests.post(api_address, data={'api_token': api_token, 'username': n.user})
-
