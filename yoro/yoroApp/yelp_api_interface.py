@@ -29,7 +29,6 @@ TOKEN = "tuldi5IUKvJ2Ipgb5MCGJqIZw9TKyyk4"
 TOKEN_SECRET = "8JPI-d2qM-lt2sNz-i2VAYYEOt0"
 
 
-
 def request(host, path, url_params=None):
     """Prepares OAuth authentication and sends the request to the API.
     Args:
