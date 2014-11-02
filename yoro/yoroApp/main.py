@@ -43,7 +43,7 @@ def send_yo_with_link(username, link):
 
 app = Flask(__name__)
 
-@app.route("/yo")
+@app.route("/main_yo/")
 def main_yo():
 	username = request.args.get('username')
 	location = request.args.get('location')
