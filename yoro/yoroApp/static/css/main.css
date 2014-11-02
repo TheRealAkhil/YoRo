@@ -1,0 +1,45 @@
+#login-button{
+    color:white;
+    font-weight: bold;
+    float:right;
+    padding-right: 10px;
+}
+
+#frontBanner{
+    padding-top: 0px;
+    padding-bottom: 48px;
+    height:180px;
+    margin-top: -10px;
+    color:white;
+    background: -webkit-linear-gradient(#0EE0A2, #02BA6E); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#0EE0A2, #02BA6E); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#0EE0A2, #02BA6E); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#0EE0A2, #02BA6E); /* Standard syntax */
+}
+
+#food-type-question{
+    padding-top: 3px;
+    padding-left: 200px;
+    padding-bottom: 3px;
+}
+
+#food-type-question h1{
+    font-size: 42px;
+    font-weight: bolder;
+}
+
+.food-type-choose{
+    padding:5px 9px 5px 9px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    font-size: 39px;
+    float:left;
+    margin:14px 17px 14px 17px;
+    background-color: #E8E8E8;
+    border: 0px;
+}
+
+#food-choice-container{
+    margin: 0 auto;
+    width: 80%;
+}

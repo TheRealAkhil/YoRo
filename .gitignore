@@ -2,3 +2,4 @@
 \yoro\yoroApp\API_KEY.pyc
 .DS_Store
 yoro.py
+*.pyc
