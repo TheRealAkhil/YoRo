@@ -1,5 +1,6 @@
 from datetime import datetime
 from API_KEY import api_token, api_address
+from flask import request
 import requests
 
 # @return current date & time in a datetimeobject
@@ -26,4 +27,19 @@ def send_yo(username):
 def make_date_object(date, time):
 	return datetime.combine(date, time)
 
-# send_yo_with_link('ultraman', 'http://www.nba.com')
+# Handle callback request
+# @return a tuple of (latitude, longitude) of user's location
+def get_location():
+	username = request.args.get('username')
+	location = request.args.get('location')
+	latitude = location.split(';')[0]
+	longitude = location.split(';')[1]
+	return (latitude, longitude)
+
+send_yo_with_link('ultraman', 'http://www.nba.com')
+get_location()
+
+
+
+
+
