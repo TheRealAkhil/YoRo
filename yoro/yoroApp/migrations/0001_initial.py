@@ -11,13 +11,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Notes',
+            name='Note',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('user', models.CharField(max_length=30)),
                 ('text_body', models.CharField(max_length=200)),
-                ('start_date', models.DateTimeField(verbose_name=b'Start Date')),
-                ('exp_date', models.DateTimeField(verbose_name=b'Expiration Date')),
+                ('time', models.DateTimeField(verbose_name=b'Reminder Date')),
             ],
             options={
             },
