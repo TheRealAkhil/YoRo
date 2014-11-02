@@ -19,7 +19,9 @@ dict {
 Much of this code relies from and is adapted from the nltk library in python, as indicated.
 
 """
-
+from nltk.metrics.distance import edit_distance #from nltk
+from nltk.stem.porter import PorterStemmer #from nltk
+from category_keywords import keyword_categorization
 import datetime
 import re
 
@@ -135,8 +137,6 @@ def get_time(text):
 				return [integer_time, int(minutes)]
 
 def close_enough(string1, string2): #are two works close enough that we can consider them equal
-	from nltk.metrics.distance import edit_distance #from nltk
-	from nltk.stem.porter import PorterStemmer #from nltk
 	stemmer = PorterStemmer() #from nltk
 	string1 = stemmer.stem(string1).encode("ascii","ignore")
 	string2 = stemmer.stem(string2).encode("ascii","ignore")
@@ -146,7 +146,7 @@ def close_enough(string1, string2): #are two works close enough that we can cons
 def get_key_words(text):
 	tokens = text.split(" ")
 	stemmed_tokens = []
-	from nltk.stem.porter import PorterStemmer #from nltk
+	
 	stemmer = PorterStemmer() #from nltk
 	preserved_tokens = []
 	for word in tokens:
@@ -155,7 +155,6 @@ def get_key_words(text):
 			preserved_tokens.append(word) #need to preserve the stem of the adjective
 	category = ""
 	special = ""
-	from category_keywords import keyword_categorization
 	for i in range(len(stemmed_tokens)):
 		for word in keyword_categorization:
 			should_break = False
