@@ -1,18 +1,15 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect, render_to_response
-from django.utils import timezone
 from models import Note
 import get_yo_main as helpers
+from API_KEY import api_token, api_address
 import main
-
+import requests
 
 def index(request):
-    return render(request, 'index.html', {})
+	return render(request, 'index.html', {})
 
 def yo(request):
-	print "in yo"
 	username = request.GET.get('username')
-	
 	location = request.GET.get('location')
 	latitude = location.split(';')[0]
 	longitude = location.split(';')[1]
@@ -22,17 +19,14 @@ def yo(request):
 	for n in Note.objects.all():
 		if (not n.flagRead) and username.lower() == n.user.lower():
 			reminder_text = n.text_body
+			yo_url = helpers.get_yo_main(latitude, longitude, reminder_text)
+			data={'api_token': api_token, 'username': username, 'link': yo_url}
 			n.flagRead = True
-			print "what"
 			n.save()
+			requests.post(api_address, data)
 			break
 
-	print reminder_text
-
-	yo_url = helpers.get_yo_main(latitude, longitude, reminder_text)
-	print yo_url
-
-	return render_to_response(api_address, data={'api_token': api_token, 'username': username, 'link': 'http://www.espn.com'})
+	return redirect("index")
 
 def createNote(request):
 
