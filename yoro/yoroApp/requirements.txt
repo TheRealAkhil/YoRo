@@ -1,5 +1,4 @@
 requests==2.4.3
-Flask==0.10.1
 schedule
 geopy
 oauth2
