@@ -1,6 +1,9 @@
-\yoro\yoroApp\API_KEY.py
-\yoro\yoroApp\API_KEY.pyc
+/yoro/yoroApp\API_KEY.py
+/yoro/yoroApp\API_KEY.pyc
+/yoro/runquery.sh
+/yoro/querylog
 .DS_Store
 yoro.py
 *.pyc
 **/*.sqlite3
+

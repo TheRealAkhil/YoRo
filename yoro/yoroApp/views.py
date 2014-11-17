@@ -19,7 +19,8 @@ def yo(request):
 	for n in Note.objects.all():
 		if (not n.flagRead) and username.lower() == n.user.lower():
 			reminder_text = n.text_body
-			yo_url = helpers.get_yo_main(latitude, longitude, reminder_text)
+			yo_url = 'http://www.espn.com'
+			# yo_url = helpers.get_yo_main(latitude, longitude, reminder_text)
 			data={'api_token': api_token, 'username': username, 'link': yo_url}
 			n.flagRead = True
 			n.save()
