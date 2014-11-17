@@ -6,6 +6,9 @@ import main
 import requests
 
 def index(request):
+	# query = main.dbQuery()
+	# query.run()
+	# apply_async(query.run(), return render(request, 'index.html', {})]]])
 	return render(request, 'index.html', {})
 
 def yo(request):
