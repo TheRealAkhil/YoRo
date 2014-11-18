@@ -2,13 +2,9 @@ from django.shortcuts import render, redirect, render_to_response
 from models import Note
 import get_yo_main as helpers
 from API_KEY import api_token, api_address
-import main
 import requests
 
 def index(request):
-	# query = main.dbQuery()
-	# query.run()
-	# apply_async(query.run(), return render(request, 'index.html', {})]]])
 	return render(request, 'index.html', {})
 
 def yo(request):
@@ -22,10 +18,9 @@ def yo(request):
 	for n in Note.objects.all():
 		if (not n.flagRead) and username.lower() == n.user.lower():
 			reminder_text = n.text_body
-			yo_url = 'http://www.espn.com'
-			# yo_url = helpers.get_yo_main(latitude, longitude, reminder_text)
+			yo_url = helpers.get_yo_main(latitude, longitude, reminder_text)
 			data={'api_token': api_token, 'username': username, 'link': yo_url}
-			n.flagRead = True
+			n.flagRead = True 
 			n.save()
 			requests.post(api_address, data)
 			break
@@ -44,3 +39,8 @@ def createNote(request):
 
     # SHOULD REDIRECT TO LOGIN PAGE
     return redirect("index")
+
+def response(request, noteID):
+	message = Note.objects.get(pk=noteID)
+	context = {'reminder_message':message}
+	return render(request, 'base.html', context)

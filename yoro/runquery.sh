@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "running..." >> querylog
+echo "running..."
 DJANGO_SETTINGS_MODULE=yoro.settings python query.py
-echo "finished" >> querylog
+echo "finished"

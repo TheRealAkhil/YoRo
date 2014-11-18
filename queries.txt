@@ -1,2 +1,0 @@
-./query_loop.sh
-tail -f querylog 

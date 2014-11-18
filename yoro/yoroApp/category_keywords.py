@@ -44,6 +44,10 @@ keyword_categorization = [
 ("cookies","grocery"),
 ("icebreakers","grocery"),
 ("mints","grocery"),
+("fruit","grocery"),
+("plant","grocery"),
+("vegetable","grocery"),
+
 
 # Electronics
 ("charger","electronics"),

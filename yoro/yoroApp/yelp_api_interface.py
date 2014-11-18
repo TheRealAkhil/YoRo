@@ -17,17 +17,18 @@ import urllib2
 import geopy
 import oauth2
 
+import YELP_API_KEY
+
 API_HOST = 'api.yelp.com'
 SEARCH_LIMIT = 3
 SEARCH_PATH = '/v2/search/'
 BUSINESS_PATH = '/v2/business/'
 
 # OAuth credential placeholders that must be filled in by users. (filled by Tejas)
-CONSUMER_KEY = None
-CONSUMER_SECRET = None
-TOKEN = None
-TOKEN_SECRET = None
-
+CONSUMER_KEY = YELP_API_KEY.Consumer_Key
+CONSUMER_SECRET = YELP_API_KEY.Consumer_Secret
+TOKEN = YELP_API_KEY.Token
+TOKEN_SECRET = YELP_API_KEY.Token_Secret
 
 def request(host, path, url_params=None):
     """Prepares OAuth authentication and sends the request to the API.
