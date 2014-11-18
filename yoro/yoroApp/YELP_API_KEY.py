@@ -1,0 +1,5 @@
+Consumer_Key = "tTfVBK20NSvKa7iMosO9dQ"
+Consumer_Secret = "xvOyWGlnGmIgD1y-Axu33Vj3DuY"
+Token = "eh_zbbmS3I8lzLshb7Rh4qqnwrA5duF0"
+Token_Secret = "-9qUfRL7x3Jk8sr8yJmtR94KB7s"
+Dictionary = "dfaeab46-7103-4938-b76c-a7a2af7f5b64"

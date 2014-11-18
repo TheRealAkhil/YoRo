@@ -1,0 +1,44 @@
+<html>
+	<head>
+		
+	<style type="text/css">
+
+		body {
+	    background-color:"#A33FB8";
+	    color: white;
+	    text-rendering: optimizeLegibility;
+	    font-weight: 700;
+		}
+		.header {
+	    text-align: center;
+	    text-rendering: optimizeLegibility;
+		}
+		.footer {
+	    height:50px;
+	    bottom:0px;
+	    left:0px;
+	    right:0px;
+	    margin-top: 100px;
+	    font-size : 30px; 
+	    text-align : left; 
+	    padding: 1% 0;
+	    text-rendering: optimizeLegibility;
+		}
+
+	</style>
+
+	<title>YoRo</title>
+
+
+	</head>
+
+	<body>
+		<div class="header">{% block header %}{% endblock %}</div>
+		<div class="content">{% block content %}{% endblock %}</div>
+		<div class="footer">
+		<footer>
+			<p>Built by Shraman Chaudhuri, Akhil Nistala, Tejas Sundaresan using Yo & Yelp API</p>
+		</footer>
+		</div>
+	</body>
+</html>

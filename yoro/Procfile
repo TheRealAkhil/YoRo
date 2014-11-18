@@ -1,0 +1,2 @@
+web: gunicorn yoro.wsgi --log-file -
+cron: ./query_loop.sh
