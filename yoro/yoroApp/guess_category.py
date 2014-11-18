@@ -32,7 +32,7 @@ for tup in keyword_categorization:
 
 dict_format = None
 if os.path.exists("dictionary.pickle"):
-	dict_format = cPickle.load(open("dictionary.pickle","rb"))
+	dict_format = cPickle.load(open("pickles/dictionary.pickle","rb"))
 else:
 	info = urllib2.urlopen("https://raw.githubusercontent.com/adambom/dictionary/master/dictionary.json")
 	dictionary_text = None
@@ -61,7 +61,7 @@ def guess_category_list(noun, iterations_left): #includes part of speech
 	for char in "!@#$%^&*()><?|}{~`,;":
 		definition = definition.replace(char," ")
 	definition_words =definition.split(".")[0].split(" ") # first sentence's words	
-	pos_tagger = load('nltk_english_pos.pickle') #the file is form the nltk package
+	pos_tagger = cPickle.load('pickles/nltk_english_pos.pickle') #the file is form the nltk package
 	tags = pos_tagger.tag(definition_words) #nltk
 	def_nouns = []
 	results_tot = []
