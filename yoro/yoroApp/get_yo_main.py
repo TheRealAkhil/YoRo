@@ -13,7 +13,7 @@ URL for Yelp matching location within 8000 meters of the area
 import datetime
 import os
 
-os.chdir("/Users/Akhil/Desktop/Hackathons/yoro/yoro/yoroApp")
+# os.chdir("/Users/Akhil/Desktop/Hackathons/yoro/yoro/yoroApp")
 
 #gives the EST timestamp of the Yo
 def get_datetime(reminder_text):

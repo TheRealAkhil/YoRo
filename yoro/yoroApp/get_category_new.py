@@ -26,7 +26,7 @@ print string
 
 
 #tokenizer = load('nltk_tokenizer_english.pickle') #the file is form the nltk package
-pos_tagger = cPickle.load(open("pickles/nltk_english_pos.pickle", "rb")) #the file is form the nltk package
+pos_tagger = cPickle.load(open("nltk_english_pos.pickle", "rb")) #the file is form the nltk package
 # print pos_tagger
 text = "remind me to get 6 eggs at 3 PM tomorrow"
 
